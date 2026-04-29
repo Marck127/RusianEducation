@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rusia Education – Tu futuro, nuestra misión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1f3c;
+      --navy-mid: #162d52;
+      --crimson: #8b1a1a;
+      --crimson-light: #a82020;
+      --gold: #c9982a;
+      --gold-light: #e3b84a;
+      --cream: #faf7f0;
+      --white: #ffffff;
+      --text-dark: #1a1a2e;
+      --text-mid: #3d3d5c;
+      --shadow: rgba(13, 31, 60, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(13, 31, 60, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 3rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 42px;
+      height: 42px;
+    }
+
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.15rem;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .nav-title span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light);
+      color: var(--navy) !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 45%, #1a0a0a 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 80% 50%, rgba(139,26,26,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(201,152,42,0.10) 0%, transparent 60%);
+    }
+
+    /* Decorative Russian flag stripe */
+    .flag-stripe {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--white) 33.3%, var(--navy-mid) 33.3%, var(--navy-mid) 66.6%, var(--crimson) 66.6%);
+    }
+
+    /* Onion dome SVG background */
+    .hero-domes {
+      position: absolute;
+      right: -30px;
+      bottom: 0;
+      height: 90%;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(201,152,42,0.15);
+      border: 1px solid rgba(201,152,42,0.4);
+      color: var(--gold-light);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-title .accent { color: var(--gold); }
+    .hero-title .crimson-txt { color: #e05050; }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      border: 2px solid transparent;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--crimson-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139,26,26,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-light);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      border: 2px solid rgba(201,152,42,0.5);
+      transition: all 0.25s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* Hero stats panel */
+    .hero-panel {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,152,42,0.25);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      padding: 2.5rem;
+      animation: fadeIn 1s 0.4s ease both;
+    }
+
+    .hero-panel-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255,255,255,0.04);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.25s;
+    }
+
+    .stat-item:hover { background: rgba(201,152,42,0.1); }
+
+    .stat-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.2rem;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section {
+      padding: 6rem 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-width: 620px;
+      font-weight: 400;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--crimson));
+      margin: 1.25rem 0 1.75rem;
+      border-radius: 2px;
+    }
+
+    /* ─── SERVICES ─── */
+    .services { background: var(--cream); }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .services-header .divider {
+      margin: 1.25rem auto 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2.2rem;
+      box-shadow: 0 4px 20px var(--shadow);
+      border: 1px solid rgba(201,152,42,0.12);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, var(--gold), var(--crimson));
+      transition: height 0.4s ease;
+    }
+
+    .service-card:hover::before { height: 100%; }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(13,31,60,0.14);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ─── PROCESS ─── */
+    .process {
+      background: linear-gradient(135deg, var(--navy) 0%, #1c1028 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 100% 0%, rgba(139,26,26,0.15) 0%, transparent 60%);
+    }
+
+    .process .section-title { color: var(--white); }
+    .process .section-subtitle { color: rgba(255,255,255,0.65); }
+    .process .section-label { color: var(--gold-light); }
+
+    .steps-track {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .steps-track::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: calc(10% + 15px);
+      right: calc(10% + 15px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--crimson), var(--gold));
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* ─── REQUIREMENTS ─── */
+    .requirements { background: var(--white); }
+
+    .req-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .req-panel {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    .req-panel-header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .req-panel-header.navy { background: var(--navy); }
+    .req-panel-header.crimson { background: var(--crimson); }
+
+    .req-panel-header h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1.15rem;
+    }
+
+    .req-panel-header span { font-size: 1.5rem; }
+
+    .req-list {
+      padding: 1.75rem 2rem;
+      background: var(--cream);
+      list-style: none;
+    }
+
+    .req-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    .req-list li:last-child { border-bottom: none; }
+
+    .req-list li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.65rem;
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+    }
+
+    .req-list strong {
+      color: var(--text-dark);
+      display: block;
+      margin-bottom: 0.1rem;
+      font-weight: 600;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing {
+      background: linear-gradient(180deg, #f5efe4 0%, var(--cream) 100%);
+    }
+
+    .pricing-header { text-align: center; margin-bottom: 3.5rem; }
+    .pricing-header .section-subtitle { margin: 0 auto; }
+    .pricing-header .divider { margin: 1.25rem auto 0; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .price-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 4px 20px var(--shadow);
+      border: 1px solid rgba(0,0,0,0.06);
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .price-card.featured {
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      border-color: var(--gold);
+      transform: scale(1.04);
+    }
+
+    .price-card:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 12px 40px rgba(13,31,60,0.14);
+    }
+
+    .price-card.featured:hover { transform: scale(1.06) translateY(-4px); }
+
+    .price-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+    .price-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .price-label.dark { color: var(--gold); }
+
+    .price-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .price-card.featured .price-name { color: var(--white); }
+
+    .price-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--crimson);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .price-card.featured .price-value { color: var(--gold-light); }
+
+    .price-range {
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+    }
+
+    .price-card.featured .price-range { color: rgba(255,255,255,0.55); }
+
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      padding-top: 1rem;
+    }
+
+    .price-card.featured .price-note {
+      color: rgba(255,255,255,0.6);
+      border-color: rgba(255,255,255,0.1);
+    }
+
+    /* ─── WHY US ─── */
+    .why {
+      background: var(--white);
+    }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-emblem {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .reasons-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .reason {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .reason-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--crimson), #6b1010);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .reason-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .reason-text p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ─── IMPORTANT INFO ─── */
+    .info-section {
+      background: var(--cream);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .info-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.75rem;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .info-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card p {
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e0a10 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 0% 100%, rgba(201,152,42,0.12) 0%, transparent 60%);
+    }
+
+    .contact .section-title { color: var(--white); }
+    .contact .section-label { color: var(--gold-light); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .contact-text .section-subtitle {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .contact-motto {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-top: 2rem;
+      line-height: 1.4;
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,152,42,0.2);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .channel:hover {
+      background: rgba(201,152,42,0.12);
+      border-color: rgba(201,152,42,0.5);
+      transform: translateX(4px);
+    }
+
+    .channel-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .channel-icon.wa { background: #25d366; }
+    .channel-icon.ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .channel-icon.tt { background: #010101; border: 1px solid #333; }
+    .channel-icon.em { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.1); }
+
+    .channel-info { flex: 1; }
+
+    .channel-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+
+    .channel-handle {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .channel-arrow {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060d1a;
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 2px solid rgba(201,152,42,0.25);
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+    }
+
+    .footer-brand strong { color: var(--gold); }
+
+    .footer-flag {
+      display: flex;
+      gap: 0;
+      border-radius: 3px;
+      overflow: hidden;
+      height: 18px;
+    }
+
+    .footer-flag div {
+      width: 24px;
+      height: 100%;
+    }
+
+    .flag-w { background: #fff; }
+    .flag-b { background: #003087; }
+    .flag-r { background: #D52B1E; }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 0.75rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-content { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      .hero-panel { display: none; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 4rem 0; }
+      .steps-track { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .steps-track::before { display: none; }
+      .req-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .why-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .why-visual { display: none; }
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav>
+  <a class="nav-brand" href="#">
+    <svg class="nav-logo-icon" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" stroke="#c9982a" stroke-width="1.5" fill="rgba(255,255,255,0.04)"/>
+      <text x="21" y="17" font-family="Georgia,serif" font-size="10" fill="#1e4fa0" text-anchor="middle" font-weight="bold">A</text>
+      <text x="21" y="17" font-family="Georgia,serif" font-size="6" fill="#c9982a" text-anchor="middle" dy="0" dx="5">&amp;</text>
+      <text x="26" y="17" font-family="Georgia,serif" font-size="10" fill="#8b1a1a" text-anchor="middle" font-weight="bold">Y</text>
+      <rect x="5" y="26" width="32" height="2.5" fill="white"/>
+      <rect x="5" y="29" width="32" height="2.5" fill="#003087"/>
+      <rect x="5" y="32" width="32" height="2.5" fill="#D52B1E"/>
+    </svg>
+    <div class="nav-title">Rusia <span>Education</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#requisitos">Requisitos</a></li>
+    <li><a href="#costos">Costos</a></li>
+    <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <!-- Decorative SVG domes silhouette -->
+  <svg class="hero-domes" viewBox="0 0 500 700" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Simplified onion dome shapes -->
+    <ellipse cx="250" cy="100" rx="35" ry="70"/>
+    <rect x="238" y="155" width="24" height="120"/>
+    <ellipse cx="160" cy="180" rx="25" ry="50"/>
+    <rect x="150" y="215" width="20" height="100"/>
+    <ellipse cx="340" cy="160" rx="25" ry="50"/>
+    <rect x="330" y="195" width="20" height="110"/>
+    <ellipse cx="95" cy="230" rx="18" ry="38"/>
+    <rect x="87" y="255" width="16" height="90"/>
+    <ellipse cx="405" cy="210" rx="18" ry="38"/>
+    <rect x="397" y="235" width="16" height="100"/>
+    <rect x="40" y="340" width="420" height="12" rx="4"/>
+    <rect x="60" y="352" width="380" height="280" rx="8"/>
+  </svg>
+  <div class="flag-stripe"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-tag">✦ Estudia en Rusia ✦</div>
+      <h1 class="hero-title">
+        Tu puerta hacia<br>
+        las <span class="accent">universidades</span><br>
+        <span class="crimson-txt">rusas</span>
+      </h1>
+      <p class="hero-subtitle">
+        Asesoría y acompañamiento integral para estudiantes latinoamericanos que desean estudiar en Rusia. Desde la elección de universidad hasta tu adaptación en el país.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contacto" class="btn-primary">🎓 Inicia tu proceso</a>
+        <a href="#servicios" class="btn-outline">Ver servicios →</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-panel-title">— Tu futuro, nuestra misión —</div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-icon">🎓</div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Admisión Garantizada</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🤝</div>
+          <div class="stat-num">Apoyo</div>
+          <div class="stat-label">Real en Rusia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌍</div>
+          <div class="stat-num">Integral</div>
+          <div class="stat-label">Asesoría Completa</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🛡️</div>
+          <div class="stat-num">Seguro</div>
+          <div class="stat-label">Confianza y Respaldo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICIOS ═══ -->
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label">Lo que ofrecemos</div>
+      <h2 class="section-title">Acompañamiento en<br>cada etapa de tu camino</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Nuestra misión es ayudarte a llegar a Rusia de forma segura, organizada y acompañada, desde el primer contacto hasta tu adaptación en el país.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Asesoría Personalizada</h3>
+        <p>Te ayudamos a elegir la universidad, ciudad y carrera que mejor se adapten a tus objetivos académicos, presupuesto y estilo de vida.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Gestión de Admisión</h3>
+        <p>Nos encargamos de revisar toda tu documentación y coordinar con la universidad para iniciar correctamente tu proceso de inscripción.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📜</div>
+        <h3>Carta de Aceptación e Invitación</h3>
+        <p>Gestionamos tu carta de aceptación universitaria y la invitación oficial emitida por Rusia, documento necesario para tramitar la visa estudiantil.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛂</div>
+        <h3>Asesoría para Visa</h3>
+        <p>Explicamos paso a paso cómo realizar el trámite de visa estudiantil en la Embajada de Rusia y qué documentos son necesarios.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Acompañamiento en Rusia</h3>
+        <p>Brindamos orientación al llegar a Rusia, apoyo con alojamiento, registro migratorio y adaptación inicial durante tus primeras semanas.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <h3>Atención Continua</h3>
+        <p>Respondemos dudas de estudiantes y padres durante todo el proceso. Nunca estarás solo en este camino hacia tu futuro académico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESO ═══ -->
+<section class="process" id="proceso">
+  <div class="container">
+    <div class="section-label">Cómo funciona</div>
+    <h2 class="section-title">Proceso de Admisión</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Un camino claro y acompañado en 5 pasos desde que nos contactas hasta que llegas a Rusia.</p>
+
+    <div class="steps-track">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Envío de Documentos</div>
+        <div class="step-desc">Envías todos tus documentos escaneados en formato PDF</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Revisión</div>
+        <div class="step-desc">Verificamos que la documentación esté correcta y completa</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Invitación Oficial</div>
+        <div class="step-desc">La universidad solicita la invitación del Ministerio del Interior de Rusia</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Trámite de Visa</div>
+        <div class="step-desc">Con la invitación oficial, inicias el trámite de visa estudiantil</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Viaje y Llegada</div>
+        <div class="step-desc">Orientación para el viaje y apoyo total al llegar a Rusia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REQUISITOS ═══ -->
+<section class="requirements" id="requisitos">
+  <div class="container">
+    <div class="section-label">Documentación necesaria</div>
+    <h2 class="section-title">Requisitos de Admisión</h2>
+    <div class="divider"></div>
+    <p class="section-subtitle">Conoce los documentos que necesitas según el nivel de estudios que deseas cursar en Rusia.</p>
+
+    <div class="req-grid">
+      <div class="req-panel">
+        <div class="req-panel-header navy">
+          <span>🎓</span>
+          <h3>Pregrado (Licenciatura)</h3>
+        </div>
+        <ul class="req-list">
+          <li>
+            <div>
+              <strong>Título de bachiller</strong>
+              Debe estar apostillado y traducido oficialmente al idioma ruso.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Certificado de calificaciones</strong>
+              Historial de notas de los últimos 6 años de educación regular.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Pasaporte vigente</strong>
+              Vigencia mínima de 18 meses al momento del viaje.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Certificados médicos</strong>
+              Pruebas de VIH, alcohol, drogas y certificados de salud general.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="req-panel">
+        <div class="req-panel-header crimson">
+          <span>🔬</span>
+          <h3>Postgrado (Maestría / Doctorado)</h3>
+        </div>
+        <ul class="req-list">
+          <li>
+            <div>
+              <strong>Título profesional</strong>
+              Debe presentarse apostillado y traducido oficialmente al ruso.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Historial académico</strong>
+              Documento emitido por la universidad con las materias y calificaciones cursadas.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Pasaporte y documentos personales</strong>
+              Deben encontrarse vigentes y correctamente traducidos al ruso.
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Certificados médicos</strong>
+              Los mismos certificados de salud requeridos para pregrado, vigentes.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COSTOS ═══ -->
+<section class="pricing" id="costos">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-label">Inversión en tu futuro</div>
+      <h2 class="section-title">Costos Aproximados</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle">Valores referenciales. Los montos pueden variar según la universidad, ciudad y tipo de alojamiento elegido.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-icon">📚</div>
+        <div class="price-label">Preparación académica</div>
+        <div class="price-name">Curso de Idioma Ruso</div>
+        <div class="price-value">~$2,100</div>
+        <div class="price-range">USD 2,000 – 2,200 / año</div>
+        <div class="price-note">Año preparatorio de idioma ruso, necesario para ingresar a programas regulares.</div>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-icon">🏨</div>
+        <div class="price-label dark">Vivienda estudiantil</div>
+        <div class="price-name">Residencia Universitaria</div>
+        <div class="price-value">~$30</div>
+        <div class="price-range">USD 25 – 35 / mes</div>
+        <div class="price-note">Habitaciones en residencia universitaria. Costo muy accesible comparado con otras opciones.</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-icon">🏥</div>
+        <div class="price-label">Obligatorio</div>
+        <div class="price-name">Seguro Médico</div>
+        <div class="price-value">~$85</div>
+        <div class="price-range">USD 70 – 100 / año</div>
+        <div class="price-note">Obligatorio para estudiantes extranjeros. Cubre atención médica durante el período académico.</div>
+      </div>
+
+      <div class="price-card">
+        <div class="price-icon">🤝</div>
+        <div class="price-label">Nuestro servicio</div>
+        <div class="price-name">Asesoría y Acompañamiento</div>
+        <div class="price-value">$800</div>
+        <div class="price-range">Pago en 2 cuotas</div>
+        <div class="price-note">Servicio completo de gestión, admisión y acompañamiento presencial en Rusia. Dividido en dos cuotas cómodas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POR QUÉ ELEGIRNOS ═══ -->
+<section class="why" id="por-que">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-visual">
+        <svg class="why-emblem" viewBox="0 0 380 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Decorative emblem -->
+          <ellipse cx="190" cy="200" rx="180" ry="190" stroke="#c9982a" stroke-width="1" stroke-dasharray="6 4" fill="rgba(201,152,42,0.03)"/>
+          <ellipse cx="190" cy="200" rx="155" ry="165" stroke="#0d1f3c" stroke-width="1.5" fill="rgba(13,31,60,0.04)"/>
+          <!-- Dome silhouettes -->
+          <ellipse cx="190" cy="90" rx="28" ry="52" fill="#0d1f3c" opacity="0.15"/>
+          <rect x="178" y="128" width="24" height="80" fill="#0d1f3c" opacity="0.12"/>
+          <ellipse cx="120" cy="140" rx="20" ry="38" fill="#8b1a1a" opacity="0.14"/>
+          <rect x="111" y="165" width="18" height="70" fill="#8b1a1a" opacity="0.10"/>
+          <ellipse cx="260" cy="130" rx="20" ry="38" fill="#0d1f3c" opacity="0.14"/>
+          <rect x="251" y="155" width="18" height="70" fill="#0d1f3c" opacity="0.10"/>
+          <!-- Central text -->
+          <text x="190" y="285" font-family="Georgia,serif" font-size="42" fill="#0d1f3c" text-anchor="middle" font-weight="bold" opacity="0.9">R·E</text>
+          <text x="190" y="315" font-family="Georgia,serif" font-size="11" fill="#c9982a" text-anchor="middle" letter-spacing="4">RUSIA EDUCATION</text>
+          <text x="190" y="338" font-family="Georgia,serif" font-size="9" fill="#8b1a1a" text-anchor="middle" letter-spacing="2" font-style="italic">Tu futuro, nuestra misión</text>
+          <!-- Russian flag bar -->
+          <rect x="90" y="355" width="100" height="6" fill="white" stroke="#ddd" stroke-width="0.5"/>
+          <rect x="90" y="361" width="100" height="6" fill="#003087"/>
+          <rect x="90" y="367" width="100" height="6" fill="#D52B1E"/>
+          <!-- Gold star accent -->
+          <text x="190" y="68" font-size="16" fill="#c9982a" text-anchor="middle">★</text>
+        </svg>
+      </div>
+
+      <div>
+        <div class="section-label">Nuestra diferencia</div>
+        <h2 class="section-title">¿Por qué elegir<br>Rusia Education?</h2>
+        <div class="divider"></div>
+
+        <div class="reasons-list">
+          <div class="reason">
+            <div class="reason-icon">🏛️</div>
+            <div class="reason-text">
+              <h4>Acompañamiento Real en Rusia</h4>
+              <p>Contamos con apoyo directo en Rusia para asistir a los estudiantes durante su llegada y proceso de adaptación. No estás solo al llegar.</p>
+            </div>
+          </div>
+          <div class="reason">
+            <div class="reason-icon">👨‍👩‍👧</div>
+            <div class="reason-text">
+              <h4>Atención a Estudiantes y Padres</h4>
+              <p>Respondemos las dudas de los estudiantes y sus familias durante todo el proceso. Transparencia y comunicación constante.</p>
+            </div>
+          </div>
+          <div class="reason">
+            <div class="reason-icon">📖</div>
+            <div class="reason-text">
+              <h4>Experiencia y Conocimiento Real</h4>
+              <p>Conocemos de primera mano el proceso migratorio, universitario y la vida estudiantil en Rusia. Nuestra orientación está basada en experiencia directa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INFORMACIÓN IMPORTANTE ═══ -->
+<section class="info-section">
+  <div class="container">
+    <div class="section-label">Debes saber</div>
+    <h2 class="section-title">Información Importante</h2>
+    <div class="divider"></div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>🛂 Visa Estudiantil</h4>
+        <p>La aprobación final de la visa depende exclusivamente de la Embajada de Rusia. Nuestro servicio facilita el proceso y la documentación, pero la decisión final es de la Embajada.</p>
+      </div>
+      <div class="info-card">
+        <h4>💰 Costos Variables</h4>
+        <p>Los costos indicados son aproximados y pueden variar dependiendo de la universidad, ciudad y tipo de alojamiento. Recibirás información actualizada durante la asesoría.</p>
+      </div>
+      <div class="info-card">
+        <h4>📑 Alcance del Servicio</h4>
+        <p>Nuestro servicio corresponde a asesoría y acompañamiento administrativo. Somos el puente entre el estudiante y la universidad, facilitando cada paso del proceso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACTO ═══ -->
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-text">
+        <div class="section-label">Escríbenos</div>
+        <h2 class="section-title">¿Listo para comenzar<br>tu aventura académica?</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">
+          Estamos aquí para resolver todas tus dudas y guiarte en cada paso del proceso. Contáctanos por el canal que prefieras y comencemos juntos.
+        </p>
+        <div class="contact-motto">— Tu futuro, nuestra misión —</div>
+      </div>
+
+      <div class="contact-channels">
+        <a href="https://wa.me/" class="channel" target="_blank" rel="noopener">
+          <div class="channel-icon wa">📱</div>
+          <div class="channel-info">
+            <div class="channel-name">WhatsApp</div>
+            <div class="channel-handle">Escríbenos directo</div>
+          </div>
+          <div class="channel-arrow">→</div>
+        </a>
+        <a href="https://instagram.com/" class="channel" target="_blank" rel="noopener">
+          <div class="channel-icon ig">📷</div>
+          <div class="channel-info">
+            <div class="channel-name">Instagram</div>
+            <div class="channel-handle">Síguenos y contáctanos</div>
+          </div>
+          <div class="channel-arrow">→</div>
+        </a>
+        <a href="https://tiktok.com/" class="channel" target="_blank" rel="noopener">
+          <div class="channel-icon tt">🎵</div>
+          <div class="channel-info">
+            <div class="channel-name">TikTok</div>
+            <div class="channel-handle">Conoce nuestra comunidad</div>
+          </div>
+          <div class="channel-arrow">→</div>
+        </a>
+        <a href="mailto:" class="channel">
+          <div class="channel-icon em">✉️</div>
+          <div class="channel-info">
+            <div class="channel-name">Correo Electrónico</div>
+            <div class="channel-handle">Envíanos tu consulta</div>
+          </div>
+          <div class="channel-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-brand"><strong>Rusia Education</strong> — Estudia en Rusia, con acompañamiento real</div>
+  <div class="footer-flag">
+    <div class="flag-w"></div>
+    <div class="flag-b"></div>
+    <div class="flag-r"></div>
+  </div>
+  <div class="footer-copy">© 2025 Rusia Education. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .step, .price-card, .reason, .info-card, .channel').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
